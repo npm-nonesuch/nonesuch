@@ -2,7 +2,8 @@
   "name": "@nonesuch/nonesuch",
   "version": "0.1.0",
   "description": "Test package for NPM experimentation.",
-  "main": "index.js",
+  "main": "index",
+  "module": "index.mjs",
   "scripts": {
     "rollup": "rollup -c rollup.config.js",
     "test": "mocha test/config.unit.js src/**/*.spec.js"

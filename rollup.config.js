@@ -1,17 +1,21 @@
-import json from 'rollup-plugin-json';
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import path from 'path'
+
+import json from 'rollup-plugin-json'
+import babel from 'rollup-plugin-babel'
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
 
 const babelPlugin = babel({
     exclude: 'node_modules/**/*',
-});
+})
+
+const BUILD_DIR = path.resolve(__dirname, 'build')
 
 export default [
     {
-        input: 'src/index.js', 
+        input: 'src/index.mjs',
         output: {
-            file: 'build/nonesuch.mjs',
+            file: 'build/index.mjs',
             format: 'esm'
         },
         plugins: [
@@ -21,9 +25,9 @@ export default [
         ],
     },
     {
-        input: 'src/index.js', 
+        input: 'src/index.js',
         output: {
-            file: 'build/nonesuch.js',
+            file: 'build/index.js',
             format: 'cjs'
         },
         plugins: [
@@ -33,10 +37,10 @@ export default [
         ],
     },
     {
-        input: 'src/index.js', 
+        input: 'src/index.js',
         output: {
-            file: 'build/nonesuch.browser.js',
-            format: 'iife',
+            file: 'build/nonesuch.umd.js',
+            format: 'umd',
             name: 'nonesuch',
         },
         plugins: [

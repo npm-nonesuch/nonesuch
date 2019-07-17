@@ -1,2 +1,8 @@
-exports.VERSION = require('../package.json').version;
-exports.elements = require('./elements');
+//exports.elements = require('./elements');
+
+const { VERSION } = require('../package.json')
+
+module.exports = {
+    VERSION,
+    hello: 'Hello Nonesuch (CJS)'
+}
